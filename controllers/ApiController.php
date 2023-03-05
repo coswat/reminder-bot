@@ -4,7 +4,7 @@ namespace Controller;
 
 class ApiController
 {
-    protected string $bot_token = '6200345116:AAElKFj_tDJXm-LQPagLQ1xKLNfJfMOShZU';
+    protected string $bot_token = 'BOT TOKEN';
 
     public function sendResponse(string$mode,string $data)
     {
