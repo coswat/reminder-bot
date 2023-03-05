@@ -24,7 +24,7 @@ foreach ($datas as $data) {
 {$data->message}",
           'parse_mode' => 'html'
           ];
-        $apiCont->sendResponse(http_build_query('sendMessage',$responseData));
+        $apiCont->sendResponse('sendMessage',http_build_query('sendMessage',$responseData));
         $sql = "DELETE FROM main WHERE id=$data->id";
         $stmt = $conn->query($sql);
     }
