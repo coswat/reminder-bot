@@ -4,8 +4,8 @@ namespace Controller;
 
 class ApiController
 {
-    protected string $bot_token = '6200345116:AAHAuwmJ7NftGfghyhkplKEXRBiHaA432NU';
-    
+    protected string $bot_token = '6200345116:AAElKFj_tDJXm-LQPagLQ1xKLNfJfMOShZU';
+
     public function sendResponse(string $data)
     {
         $url = "https://api.telegram.org/bot{$this->bot_token}/sendMessage?{$data}";
