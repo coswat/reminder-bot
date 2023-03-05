@@ -6,9 +6,9 @@ class ApiController
 {
     protected string $bot_token = '6200345116:AAElKFj_tDJXm-LQPagLQ1xKLNfJfMOShZU';
 
-    public function sendResponse(string $data)
+    public function sendResponse(string$mode,string $data)
     {
-        $url = "https://api.telegram.org/bot{$this->bot_token}/sendMessage?{$data}";
+        $url = "https://api.telegram.org/bot{$this->bot_token}/$mode?{$data}";
 
         $curl = curl_init();
         curl_setopt($curl, CURLOPT_URL, $url);

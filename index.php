@@ -15,16 +15,6 @@ $replyTo = $data->message->reply_to_message->text;
 
 $response = new RequestHandler((int)$chat_id);
 
-if ($chat_id !== 1120861062) {
-    $text = [
-       'chat_id' => $chat_id,
-       'text' => 'Unauthorized',
-      ];
-    $apicontroller = new ApiController();
-    $apicontroller->sendResponse(http_build_query($text));
-    exit;
-}
-
 if ($request == '/start') {
     return $response->boot();
 } elseif ($request == 'Set Reminder') {

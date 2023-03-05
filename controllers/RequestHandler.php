@@ -28,7 +28,7 @@ class RequestHandler extends ApiController
             "reply_markup" => json_encode($reply_markup),
         ];
 
-        return $this->sendResponse(http_build_query($data));
+        return $this->sendResponse('sendMessage',http_build_query($data));
     }
 
     public function handle()
@@ -48,7 +48,7 @@ i Have a meeting now (2022-04-01 21:45)',
            'reply_markup' => json_encode($reply_markup),
            'parse_mode' => 'html'
           ];
-        return $this->sendResponse(http_build_query($data));
+        return $this->sendResponse('sendMessage',http_build_query($data));
     }
 
     public function remindProccessSet(string $message)
@@ -65,14 +65,14 @@ i Have a meeting now (2022-04-01 21:45)',
               'chat_id' => $this->chat_id,
               'text' => 'Reminder set successfully'
               ];
-            $this->sendResponse(http_build_query($data));
+            $this->sendResponse('sendMessage',http_build_query($data));
             return $this->boot();
         }
         $data = [
               'chat_id' => $this->chat_id,
               'text' => 'Bad Format!'
               ];
-        return $this->sendResponse(http_build_query($data));
+        return $this->sendResponse('sendMessage',http_build_query($data));
     }
 
     public function fetchReminders()
@@ -89,14 +89,14 @@ Time : {$reminder->time}
 
 ID : {$reminder->id}"
          ];
-            $this->sendResponse(http_build_query($data));
+            $this->sendResponse('sendMessage',http_build_query($data));
         }
         if (!$reminders) {
             $data = [
                'chat_id' => $this->chat_id,
                'text' => 'No Reminders Found!'
                ];
-            return $this->sendResponse(http_build_query($data));
+            return $this->sendResponse('sendMessage',http_build_query($data));
         }
     }
    public function deleteRequest()
@@ -111,7 +111,7 @@ ID : {$reminder->id}"
          'text' => 'Enter ID of Reminder to delete',
          'reply_markup' => json_encode($reply_markup),
          ];
-       return $this->sendResponse(http_build_query($data));
+       return $this->sendResponse('sendMessage',http_build_query($data));
    }
    public function deleteReminder(int $id)
    {
@@ -124,13 +124,13 @@ ID : {$reminder->id}"
             'chat_id' => $this->chat_id,
             'text' => "ID {$id} not found!",
             ];
-           return $this->sendResponse(http_build_query($data));
+           return $this->sendResponse('sendMessage',http_build_query($data));
        } elseif ($this->chat_id != $sqlData->chat_id) {
            $data = [
             'chat_id' => $this->chat_id,
             'text' => 'Unauthorized',
             ];
-           return $this->sendResponse(http_build_query($data));
+           return $this->sendResponse('sendMessage',http_build_query($data));
        } else {
            $sql = 'DELETE FROM main WHERE id=?';
            $stmt = $this->conn->prepare($sql);
@@ -139,7 +139,7 @@ ID : {$reminder->id}"
             'chat_id' => $this->chat_id,
             'text' => "Reminder deleted successfully",
             ];
-           $this->sendResponse(http_build_query($data));
+           $this->sendResponse('sendMessage',http_build_query($data));
            return $this->boot();
        }
    }
