@@ -24,8 +24,8 @@ https://api.telegram.org/bot<<TOKEN HERE>>/setWebhook?url=https://example.com/re
 
 set example.com/reminder-bot/cron/script.php as cron job link
 
-<p align="center"><a href="https://github.com/coswat/router#coswat"><img src="http://randojs.com/images/barsSmallTransparentBackground.gif" alt="Animated footer bars" width="100%"/></a></p>
+<p align="center"><a href="https://github.com/coswat/reminder-bot#coswat"><img src="http://randojs.com/images/barsSmallTransparentBackground.gif" alt="Animated footer bars" width="100%"/></a></p>
 <br/>
-<p align="center"><a href="https://github.com/coswat/router#"><img src="http://randojs.com/images/backToTopButtonTransparentBackground.png" alt="Back to top" height="29"/></a></p>
+<p align="center"><a href="https://github.com/coswat/reminder-bot#"><img src="http://randojs.com/images/backToTopButtonTransparentBackground.png" alt="Back to top" height="29"/></a></p>
 
 
