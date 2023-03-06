@@ -14,6 +14,7 @@ $chat_id = $data->message->chat->id;
 $replyTo = $data->message->reply_to_message->text;
 
 $response = new RequestHandler((int)$chat_id);
+$apiCont = new ApiController();
 
 if ($request == '/start') {
     return $response->boot();
@@ -33,4 +34,10 @@ i Have a meeting now (2022-04-01 21:45)') {
     return $response->deleteRequest();
 } elseif ($replyTo && $replyTo == 'Enter ID of Reminder to delete') {
     return $response->deleteReminder((int)$request);
+}else{
+      $msg = [
+        'chat_id' => $chat_id,
+        'text' => 'Invalid Command'
+        ];
+    return $apiCont->sendResponse('sendMessage',http_build_query($msg));
 }
