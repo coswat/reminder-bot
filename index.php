@@ -26,7 +26,7 @@ if ($request == '/start') {
           
 Example Message :
 
-i Have a meeting now (2022-04-01 21:45)') {
+I have a meeting now (2022-04-01 21:45)') {
     return $response->remindProccessSet($request);
 } elseif ($request == 'Current Reminders') {
     return $response->fetchReminders();
