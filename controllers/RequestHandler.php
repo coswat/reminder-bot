@@ -44,7 +44,7 @@ class RequestHandler extends ApiController
           
 Example Message :
 
-i Have a meeting now (2022-04-01 21:45)',
+I have a meeting now (2022-04-01 21:45)',
            'reply_markup' => json_encode($reply_markup),
            'parse_mode' => 'html'
           ];
